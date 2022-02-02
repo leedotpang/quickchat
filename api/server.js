@@ -1,26 +1,19 @@
 import express from "express";
-import mongoose from "mongoose";
+import connectToDB from "./database/index.js";
+import { messageRoute, roomRoute, userRoute } from "./routes/index.js";
 
 const app = express();
-const dbConnection = "mongodb://localhost:27017/quickchat";
-mongoose.connect(dbConnection, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  auth: {
-    username: "username",
-    password: "password",
-  },
-  authSource: "admin",
-});
+
+connectToDB();
 
 app.use(express.json());
+
 app.get("/", (_, res) =>
-  res.json({
-    message: "Hello, world.",
-    db: `MongoDB is ${
-      mongoose.connection.readyState === 1 ? "" : "not "
-    }connected`,
-  })
+  res.json({ message: "Route intentionally left blank." })
 );
+
+app.use("/messages", messageRoute);
+app.use("/rooms", roomRoute);
+app.use("/users", userRoute);
 
 app.listen(3000, () => console.log(`Listening on Port 3000`));
