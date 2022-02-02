@@ -2,8 +2,8 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "type": "module",
+  "main": "server.js",
   "scripts": {
     "dev": "npx nodemon server.js"
   },
