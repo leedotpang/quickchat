@@ -5,6 +5,7 @@ import Login from "../screens/Login";
 import Logout from "../components/Logout";
 import Protected from "../components/Protected";
 import QuickChat from "../components/QuickChat";
+import Register from "../screens/Register";
 
 const QCRouter = () => {
   return (
@@ -12,7 +13,7 @@ const QCRouter = () => {
       <Route path="/" element={<QuickChat />}>
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
-        <Route path="register" element={<>Register</>} />
+        <Route path="register" element={<Register />} />
         <Route path="room">
           <Route index element={<Protected>Please Select a Room</Protected>} />
           <Route path=":id" element={<Protected>Rooms</Protected>} />
