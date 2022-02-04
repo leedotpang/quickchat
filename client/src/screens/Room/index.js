@@ -3,7 +3,7 @@ import Message from "../../components/Message";
 import useRoom from "./logic";
 
 const Room = () => {
-  const { messages, handleSendMessage } = useRoom();
+  const { messages, handleSendMessage, handleEnterKeyPress } = useRoom();
 
   return (
     <div>
@@ -13,7 +13,11 @@ const Room = () => {
         ))}
       </div>
       <form onSubmit={handleSendMessage}>
-        <textarea name="message" placeholder="Say something!" />
+        <textarea
+          name="message"
+          placeholder="Say something!"
+          onKeyDown={handleEnterKeyPress}
+        />
         <button>Send</button>
       </form>
     </div>

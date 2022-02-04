@@ -32,11 +32,19 @@ const useRoom = () => {
       const {
         data: { message },
       } = await sendMessageRequest(messageText, user, roomId);
-      setMessages([...messages, message]);
+      setMessages([...messages, message].slice(-50));
       event.target.reset();
+      event.target.children[0].focus();
     } catch (e) {
       triggerError("Message could not be sent");
       console.error(e);
+    }
+  };
+
+  const handleEnterKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      event.target.nextSibling.click();
     }
   };
 
@@ -44,6 +52,7 @@ const useRoom = () => {
     user,
     messages,
     handleSendMessage,
+    handleEnterKeyPress,
   };
 };
 

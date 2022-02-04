@@ -3,12 +3,14 @@ import { Message } from "../database/models/index.js";
 
 const router = Router();
 
+const sortAsc = (a, b) => (a._id > b._id ? 1 : -1);
+
 const getMessages = async (req, res) => {
   try {
-    const messages = await Message.find({ roomId: req.params.roomId }).limit(
-      50
-    );
-    res.json({ messages });
+    const messages = await Message.find({ roomId: req.params.roomId })
+      .sort({ _id: -1 })
+      .limit(50);
+    res.json({ messages: messages.sort(sortAsc) });
   } catch (err) {
     res.status(500).send({
       message: "There was an error retrieving those messages.",
