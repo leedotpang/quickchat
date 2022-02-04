@@ -11,21 +11,20 @@ import QuickChat from "../components/QuickChat";
 const QCRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<QuickChat />}>
-        <Route path="login" element={<Login />} />
-        <Route path="logout" element={<Logout />} />
-        <Route path="register" element={<Register />} />
-        <Route path="room">
-          <Route index element={<Protected>Please Select a Room</Protected>} />
-          <Route
-            path=":id"
-            element={
-              <Protected>
-                <Room />
-              </Protected>
-            }
-          />
-        </Route>
+      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/logout" element={<Logout />} />
+      <Route path="/room" element={<QuickChat />}>
+        <Route index element={<Protected>Please Select a Room</Protected>} />
+        <Route
+          path=":id"
+          element={
+            <Protected>
+              <Room />
+            </Protected>
+          }
+        />
       </Route>
       <Route path="*" element={<FourOhFour />} />
     </Routes>

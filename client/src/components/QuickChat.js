@@ -1,13 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ChatHeader from "./ChatHeader";
-import ChatSidebar from "./ChatSidebar";
+import AuthHeader from "./AuthHeader";
+import Sidebar from "./Sidebar";
 
 const QuickChat = () => {
   return (
     <div>
-      <ChatHeader />
-      <ChatSidebar />
+      <AuthHeader />
+      <Sidebar />
       <Outlet />
     </div>
   );

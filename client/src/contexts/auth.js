@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
 
@@ -7,12 +7,12 @@ export const AuthProvider = ({ children }) => {
 
   const signIn = (newUser) => {
     setUser(newUser);
-    window.alert("logged in");
+    localStorage.setItem("qc-user", newUser);
   };
 
   const logOut = () => {
     setUser(null);
-    window.alert("logged out");
+    localStorage.clear();
   };
 
   const value = {
@@ -20,6 +20,10 @@ export const AuthProvider = ({ children }) => {
     signIn,
     logOut,
   };
+
+  useEffect(() => {
+    signIn(localStorage.getItem("qc-user"));
+  }, []);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
