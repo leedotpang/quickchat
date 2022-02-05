@@ -20,17 +20,11 @@ export const RoomsProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    const currentRoomIndex = rooms.findIndex(({ _id }) => _id === roomId);
-    const currentRoom = rooms[currentRoomIndex];
+    const currentRoom = rooms.find(({ _id }) => _id === roomId);
 
     if (!currentRoom) return;
 
     setSelectedRoom(currentRoom.name);
-    setRooms((rooms) => [
-      rooms[currentRoomIndex],
-      ...rooms.slice(0, currentRoomIndex),
-      ...rooms.slice(currentRoomIndex + 1, rooms.length),
-    ]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomId]);

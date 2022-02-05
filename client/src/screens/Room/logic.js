@@ -12,7 +12,7 @@ const useRoom = () => {
   const { id: roomId } = useParams();
   const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
-  const { selectedRoom } = useRoomContext();
+  const { rooms, setRooms, selectedRoom } = useRoomContext();
 
   useEffect(() => {
     const loadMessages = async () => {
@@ -23,6 +23,18 @@ const useRoom = () => {
     };
     loadMessages();
   }, [roomId]);
+
+  const sortActiveRoom = () => {
+    const currentRoomIndex = rooms.findIndex(
+      ({ name }) => name === selectedRoom
+    );
+
+    setRooms((rooms) => [
+      rooms[currentRoomIndex],
+      ...rooms.slice(0, currentRoomIndex),
+      ...rooms.slice(currentRoomIndex + 1, rooms.length),
+    ]);
+  };
 
   const handleSendMessage = async (event) => {
     event.preventDefault();
@@ -38,6 +50,7 @@ const useRoom = () => {
         data: { message },
       } = await sendMessageRequest(messageText, user, roomId);
       setMessages([...messages, message].slice(-50));
+      sortActiveRoom();
       form.reset();
       textarea.focus();
     } catch (e) {
