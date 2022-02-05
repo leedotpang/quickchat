@@ -1,10 +1,10 @@
 import React from "react";
+import QCRouter from "./utilities/router";
 
 const App = () => {
   return (
     <>
-      <h1>QuickCh@ app</h1>
-      <p>Page intentionally left blank.</p>
+      <QCRouter />
     </>
   );
 };
