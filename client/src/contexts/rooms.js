@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRoomsRequest, sortByNewest, useAsync } from "../utilities";
+import { getRoomsRequest, useAsync } from "../utilities";
 
 const RoomContext = createContext(null);
 
