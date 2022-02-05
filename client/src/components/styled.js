@@ -1,13 +1,15 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-body {
+  body {
     font-family: serif;
     background: #018281;
     color: white;
     padding: 20px;
     margin: 0;
+    font-size: 14px;
   }
+
   html { padding: 0; margin: 0; }
 
   body > div {
@@ -24,7 +26,7 @@ export const Button = styled.button`
   border-bottom-color: #424242;
   background: silver;
   color: black;
-  padding: 2px 5px 4px;
+  padding: 2px 7px 4px;
   border-radius: 1px;
   font-size: 16px;
 
@@ -62,6 +64,8 @@ export const Textarea = styled.textarea`
   resize: none;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 10px;
+  font-size: 15px;
 
   &:disabled {
     opacity: 0.5;
