@@ -1,26 +1,38 @@
 import React from "react";
 import Message from "../../components/Message";
+import { Button, ScrollContent, Textarea } from "../../components/styled";
+import Window from "../../components/Window";
 import useRoom from "./logic";
 
 const Room = () => {
-  const { messages, handleSendMessage, handleEnterKeyPress } = useRoom();
+  const { messages, user, handleSendMessage, handleEnterKeyPress, exitRoom } =
+    useRoom();
 
   return (
-    <div>
-      <div className="messages">
-        {messages.map((message, i) => (
-          <Message key={`message${i}`} {...message} />
-        ))}
-      </div>
+    <Window header="Room name" width="500" closeAction={exitRoom}>
+      <ScrollContent height="250" scrollBottom>
+        <div>
+          {messages.map((message, i) => (
+            <Message
+              key={`message${i}`}
+              {...message}
+              self={message.username === user}
+            />
+          ))}
+        </div>
+      </ScrollContent>
+      <hr />
       <form onSubmit={handleSendMessage}>
-        <textarea
+        <Textarea
           name="message"
           placeholder="Say something!"
           onKeyDown={handleEnterKeyPress}
         />
-        <button>Send</button>
+        <div>
+          <Button>Send</Button>
+        </div>
       </form>
-    </div>
+    </Window>
   );
 };
 

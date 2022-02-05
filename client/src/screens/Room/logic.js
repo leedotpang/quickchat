@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../../contexts";
 import {
   getMessagesRequest,
@@ -11,6 +11,7 @@ const useRoom = () => {
   const { user } = useAuthContext();
   const { id: roomId } = useParams();
   const [messages, setMessages] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadMessages = async () => {
@@ -25,6 +26,9 @@ const useRoom = () => {
   const handleSendMessage = async (event) => {
     event.preventDefault();
 
+    const form = event.target;
+    const textarea = form.children[0];
+
     let formData = new FormData(event.currentTarget);
     let messageText = formData.get("message");
 
@@ -33,8 +37,8 @@ const useRoom = () => {
         data: { message },
       } = await sendMessageRequest(messageText, user, roomId);
       setMessages([...messages, message].slice(-50));
-      event.target.reset();
-      event.target.children[0].focus();
+      form.reset();
+      textarea.focus();
     } catch (e) {
       triggerError("Message could not be sent");
       console.error(e);
@@ -44,15 +48,18 @@ const useRoom = () => {
   const handleEnterKeyPress = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
-      event.target.nextSibling.click();
+      event.target.nextSibling.children[0].click();
     }
   };
+
+  const exitRoom = () => navigate("/room");
 
   return {
     user,
     messages,
     handleSendMessage,
     handleEnterKeyPress,
+    exitRoom,
   };
 };
 

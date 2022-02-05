@@ -1,14 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import AuthHeader from "./AuthHeader";
+import AuthHeader from "../components/AuthHeader";
+import { FlexDiv } from "../components/styled";
 import Sidebar from "./Sidebar";
 
 const QuickChat = () => {
   return (
     <div>
       <AuthHeader />
-      <Sidebar />
-      <Outlet />
+      <hr />
+      <FlexDiv>
+        <Sidebar />
+        <Outlet />
+      </FlexDiv>
     </div>
   );
 };

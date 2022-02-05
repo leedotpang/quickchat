@@ -25,7 +25,7 @@ const useRegister = () => {
       } = await registerRequest(nameInput);
       signIn(username);
     } catch (e) {
-      triggerError("Can't create user.");
+      triggerError("Can't create user. Maybe that username already exists?");
       console.error(e);
     }
   };
