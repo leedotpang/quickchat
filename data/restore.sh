@@ -1,0 +1,1 @@
+mongorestore --gzip --archive="/srv/db-dump.gz" --db quickchat

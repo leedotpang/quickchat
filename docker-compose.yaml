@@ -1,0 +1,29 @@
+version: "3"
+services:
+  client:
+    build: "./client" 
+    ports: 
+      - "3000:3000"
+    networks:
+      - quickchat
+  api:
+    build: "./api"
+    ports:
+      - "5000:5000"
+    networks:
+      - quickchat
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/dump.gz:/srv/db-dump.gz
+      - ./data/restore.sh:/docker-entrypoint-initdb.d/qcrestore.sh
+    networks:
+      - quickchat
+
+networks:
+  quickchat:
+    driver: bridge
