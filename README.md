@@ -12,6 +12,10 @@ QuickCh@ is a full stack, dockerized chat application for creating rooms and sen
   - This command will also automatically import a backup of basic data for the application. To skip this step, remove the two volume maps in the [docker-compose.yml](docker-compose.yml) file.
 - To clean up, run `docker-compose down` or type `CTRL-C` in your terminal window to shut down the containers
 
+## Process
+
+This repo was maintained using a gitflow-like workflow. The commits weren't optimal, but [view the PRs to see](https://github.com/leedotpang/quickchat/pulls?q=is%3Apr+is%3Aclosed) how I progressed through the challenge.
+
 ## Prerequisites
 
 1. Users are authenticated via unique username (passwords not required).
@@ -20,5 +24,5 @@ QuickCh@ is a full stack, dockerized chat application for creating rooms and sen
 
 ## Working Solution
 
-This application will be built utilizing the MERN stack, primarily with ESX syntax and without the use of many additional libraries.
-The goal of this exercise will be to produce an MVP within a limited time-frame, and modify as time permits.
+This application is built utilizing the MERN (Mongo/Express/React/Node) stack, primarily with ESX syntax, and without the use of many additional libraries.
+The goal of this exercise was to produce an MVP within a limited time-frame, and modify as time permitted.
