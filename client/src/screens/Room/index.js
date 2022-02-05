@@ -5,11 +5,17 @@ import Window from "../../components/Window";
 import useRoom from "./logic";
 
 const Room = () => {
-  const { messages, user, handleSendMessage, handleEnterKeyPress, exitRoom } =
-    useRoom();
+  const {
+    messages,
+    user,
+    selectedRoom,
+    handleSendMessage,
+    handleEnterKeyPress,
+    exitRoom,
+  } = useRoom();
 
   return (
-    <Window header="Room name" width="500" closeAction={exitRoom}>
+    <Window header={selectedRoom} width="500" closeAction={exitRoom}>
       <ScrollContent height="250" scrollBottom>
         <div>
           {messages.map((message, i) => (

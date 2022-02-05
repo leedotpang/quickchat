@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuthContext } from "../../contexts";
+import { useAuthContext, useRoomContext } from "../../contexts";
 import {
   getMessagesRequest,
   sendMessageRequest,
@@ -12,6 +12,7 @@ const useRoom = () => {
   const { id: roomId } = useParams();
   const [messages, setMessages] = useState([]);
   const navigate = useNavigate();
+  const { selectedRoom } = useRoomContext();
 
   useEffect(() => {
     const loadMessages = async () => {
@@ -57,6 +58,7 @@ const useRoom = () => {
   return {
     user,
     messages,
+    selectedRoom,
     handleSendMessage,
     handleEnterKeyPress,
     exitRoom,

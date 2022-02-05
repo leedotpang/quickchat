@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
   let [user, setUser] = useState(null);
 
   const signIn = (newUser) => {
+    if (!newUser) return;
     setUser(newUser);
     localStorage.setItem("qc-user", newUser);
   };
