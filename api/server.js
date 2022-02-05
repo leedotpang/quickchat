@@ -18,4 +18,4 @@ app.use("/messages", messageRoute);
 app.use("/rooms", roomRoute);
 app.use("/users", userRoute);
 
-app.listen(3030, () => console.log(`Listening on Port 3030`));
+app.listen(5000, () => console.log(`Listening on Port 5000`));
