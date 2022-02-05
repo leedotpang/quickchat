@@ -172,7 +172,7 @@ export const MessageUser = styled.strong`
 
 export const RoomLink = styled.a`
   display: block;
-  text-decoration: none;
+  text-decoration: ${(props) => (props.selected ? "underline" : "none")};
   color: #000;
   font-weight: 600;
   padding: 2px 0;

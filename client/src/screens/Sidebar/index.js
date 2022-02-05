@@ -4,7 +4,8 @@ import Window from "../../components/Window";
 import useSidebar from "./logic";
 
 const Sidebar = () => {
-  const { rooms, user, handleAddRoom, handleRoomClick } = useSidebar();
+  const { rooms, user, selectedRoom, handleAddRoom, handleRoomClick } =
+    useSidebar();
 
   return (
     <Window header="Rooms" width={250}>
@@ -17,6 +18,7 @@ const Sidebar = () => {
               key={_id + name}
               href={`/room/${_id}`}
               onClick={handleRoomClick(_id)}
+              selected={selectedRoom === name}
             >
               {name}
             </RoomLink>

@@ -5,13 +5,21 @@ const router = Router();
 
 const getRooms = async (req, res) => {
   try {
-    const rooms = await Room.find();
+    const rooms = await Room.find().populate({
+      path: "messages",
+      select: "roomId createdAt",
+      options: {
+        perDocumentLimit: 1,
+        sort: { createdAt: -1 },
+      },
+    });
     res.json({ rooms });
   } catch (err) {
     res.status(500).send({
       message: "There was an error retrieving rooms.",
       err,
     });
+    console.error(err);
   }
 };
 

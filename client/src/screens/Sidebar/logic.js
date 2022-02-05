@@ -5,7 +5,7 @@ import { useRoomContext } from "../../contexts/rooms";
 
 const useSidebar = () => {
   const { user } = useAuthContext();
-  const { rooms, setRooms } = useRoomContext();
+  const { rooms, setRooms, selectedRoom } = useRoomContext();
   const navigate = useNavigate();
 
   const handleAddRoom = async () => {
@@ -30,6 +30,7 @@ const useSidebar = () => {
   return {
     rooms,
     user,
+    selectedRoom,
     handleAddRoom,
     handleRoomClick,
   };
