@@ -29,6 +29,7 @@ export const Button = styled.button`
   padding: 2px 7px 4px;
   border-radius: 1px;
   font-size: 16px;
+  cursor: pointer;
 
   &:active {
     border-top: 2px solid #808080;
@@ -168,6 +169,10 @@ export const ScrollContent = styled.div`
 
 export const MessageUser = styled.strong`
   color: ${(props) => (props.self ? "blue" : "red")};
+`;
+
+export const MessageText = styled.span`
+  word-break: break-all;
 `;
 
 export const RoomLink = styled.a`

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "./styled";
-import Window from "./Window";
+import { Button } from "../components/styled";
+import Window from "../components/Window";
 
 const FourOhFour = () => {
   const navigate = useNavigate();
