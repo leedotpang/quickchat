@@ -177,7 +177,7 @@ export const MessageUser = styled.strong`
 `;
 
 export const MessageText = styled.span`
-  word-break: break-all;
+  overflow-wrap: break-word;
 `;
 
 export const RoomLink = styled.a`
