@@ -24,9 +24,9 @@ const useLogin = () => {
         },
       } = await loginRequest(nameInput);
       signIn(username);
-    } catch (e) {
-      triggerError("User not found");
-      console.error(e);
+    } catch (err) {
+      triggerError("User not found.");
+      console.error(err);
     }
   };
 

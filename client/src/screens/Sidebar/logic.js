@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { addRoomRequest } from "../../utilities";
-import { useAuthContext } from "../../contexts";
 import { useRoomContext } from "../../contexts/rooms";
 
 const useSidebar = () => {
-  const { user } = useAuthContext();
   const { rooms, setRooms, selectedRoom } = useRoomContext();
   const navigate = useNavigate();
 
@@ -29,7 +27,6 @@ const useSidebar = () => {
 
   return {
     rooms,
-    user,
     selectedRoom,
     handleAddRoom,
     handleRoomClick,

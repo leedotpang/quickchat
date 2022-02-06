@@ -29,6 +29,8 @@ export const Button = styled.button`
   padding: 2px 7px 4px;
   border-radius: 1px;
   font-size: 16px;
+  cursor: pointer;
+  ${(props) => props.fullWidth && "width: 100%;"}
 
   &:active {
     border-top: 2px solid #808080;
@@ -89,6 +91,10 @@ export const FlexDiv = styled.div`
   > div {
     margin: 0;
   }
+`;
+
+export const FlexCenterItem = styled.div`
+  align-self: center;
 `;
 
 export const WindowDiv = styled.div`
@@ -168,6 +174,10 @@ export const ScrollContent = styled.div`
 
 export const MessageUser = styled.strong`
   color: ${(props) => (props.self ? "blue" : "red")};
+`;
+
+export const MessageText = styled.span`
+  overflow-wrap: break-word;
 `;
 
 export const RoomLink = styled.a`

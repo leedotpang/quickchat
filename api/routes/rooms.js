@@ -3,7 +3,7 @@ import { Room } from "../database/models/index.js";
 
 const router = Router();
 
-const getRooms = async (req, res) => {
+const getRooms = async (_, res) => {
   try {
     const rooms = await Room.find().populate({
       path: "messages",

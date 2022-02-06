@@ -4,10 +4,10 @@ import Login from "../screens/Login";
 import Register from "../screens/Register";
 import QuickChat from "../screens/QuickChat";
 import Room from "../screens/Room";
+import FourOhFour from "../screens/FourOhFour";
 import RoomSelection from "../components/RoomSelection";
 import Protected from "../components/Protected";
 import Logout from "../components/Logout";
-import FourOhFour from "../components/FourOhFour";
 
 const QCRouter = () => {
   return (
