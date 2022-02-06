@@ -53,9 +53,9 @@ const useRoom = () => {
       sortActiveRoom();
       form.reset();
       textarea.focus();
-    } catch (e) {
-      triggerError("Message could not be sent");
-      console.error(e);
+    } catch (err) {
+      triggerError("There was an error sending your message.");
+      console.error(err);
     }
   };
 
