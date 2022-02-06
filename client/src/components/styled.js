@@ -30,6 +30,7 @@ export const Button = styled.button`
   border-radius: 1px;
   font-size: 16px;
   cursor: pointer;
+  ${(props) => props.fullWidth && "width: 100%;"}
 
   &:active {
     border-top: 2px solid #808080;
@@ -90,6 +91,10 @@ export const FlexDiv = styled.div`
   > div {
     margin: 0;
   }
+`;
+
+export const FlexCenterItem = styled.div`
+  align-self: center;
 `;
 
 export const WindowDiv = styled.div`

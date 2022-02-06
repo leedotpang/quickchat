@@ -4,13 +4,10 @@ import Window from "../../components/Window";
 import useSidebar from "./logic";
 
 const Sidebar = () => {
-  const { rooms, user, selectedRoom, handleAddRoom, handleRoomClick } =
-    useSidebar();
+  const { rooms, selectedRoom, handleAddRoom, handleRoomClick } = useSidebar();
 
   return (
     <Window header="Rooms" width={250}>
-      <div>Welcome, {user}!</div>
-      <hr />
       <ScrollContent height="250">
         <nav>
           {rooms.map(({ _id, name }) => (
@@ -26,7 +23,9 @@ const Sidebar = () => {
         </nav>
       </ScrollContent>
       <hr />
-      <Button onClick={handleAddRoom}>Create new room</Button>
+      <Button onClick={handleAddRoom} fullWidth>
+        + Create new room
+      </Button>
     </Window>
   );
 };
