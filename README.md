@@ -10,6 +10,8 @@ QuickCh@ is a full stack, dockerized chat application for creating rooms and sen
 - Clone this repository locally
 - Run `docker-compose up` to run the stack with a log stream, or `docker-compose up -d` to run the containers in the background
   - This command will also automatically import a backup of basic data for the application. To skip this step, remove the two volume maps in the [docker-compose.yml](docker-compose.yml) file.
+- Visit [http://localhost:3000](http://localhost:3000) to access the client UI in your browser.
+  - The API runs at **localhost:5000** && mongo runs at **localhost:27017**.
 - To clean up, run `docker-compose down` or type `CTRL-C` in your terminal window to shut down the containers
 
 ## Process
