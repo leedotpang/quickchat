@@ -24,7 +24,7 @@ const createMessage = async (req, res) => {
     const message = await Message.create({
       text: req.body.text,
       username: req.body.username,
-      roomId: req.body.roomId,
+      roomId: req.params.roomId,
     });
     res.json({ message });
   } catch (err) {
@@ -36,6 +36,6 @@ const createMessage = async (req, res) => {
 };
 
 router.get("/:roomId", getMessages);
-router.post("/", createMessage);
+router.post("/:roomId", createMessage);
 
 export default router;

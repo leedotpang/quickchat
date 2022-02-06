@@ -12,7 +12,7 @@ export const registerRequest = (email) =>
 export const loginRequest = (email) => post(LOGIN_ROUTE, { username: email });
 
 export const sendMessageRequest = (text, username, roomId) =>
-  post(MESSAGE_ROUTE, { text, username, roomId });
+  post(`${MESSAGE_ROUTE}/${roomId}`, { text, username });
 
 export const getMessagesRequest = (roomId) => get(`${MESSAGE_ROUTE}/${roomId}`);
 export const getRoomsRequest = () => get(ROOM_ROUTE);
